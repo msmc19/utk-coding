@@ -1,0 +1,91 @@
+Notes for 3/8/22
+
+Line 5 will execute IF AND ONLY IF condition1 is true
+if (condition1) {
+    execute code
+}
+
+Line 16 will execute IF AND ONLY IF *both* condition1 and condition2 are true
+&& = AND 
+If condition1 = 0 (false) and condition2 = 1 (true), then the combined expression fo (c1 && c2) if false
+If            = 1 (true) and             = 0 (false), ^                                            false
+If            = 0 (false) and            = 0 (false), ^                                            false
+If            = 1 (true) and             = 1 (true),  ^                                            true
+
+if (condition1 && condition2) {
+    execute code
+}
+
+Ex.
+if (grade == 0 && grade == 100) {
+    print out "This is a valid grade."
+}
+else {
+    print out "This is an invalid grade."
+}
+
+We can combine more than just 2 conditions. If any one of these conditions1-3 are false, line 29 will not execute.
+if (condition1 && condition2 && condition3) {
+    //execute code
+}
+***************************************************************
+|| = OR
+
+If condition1 OR condition2 is true, then the expression (c1 || c2) is true.
+If condition1 = 0 (false) and condition2 = 1 (true), then the combined expression fo (c1 || c2) if true
+If            = 1 (true) and             = 0 (false), ^                                            true
+If            = 0 (false) and            = 0 (false), ^                                            false
+If            = 1 (true) and             = 1 (true),  ^                                            true
+if (condition1 || condition2) {
+    execute code
+}
+
+Ex. 
+if (grade == 'A' || score == 'B') {
+    print out "good job"
+}
+
+if (condition1 || condition2 || condition3) {
+    execute code
+}
+
+************************************************
+Order of Operations
+&& is higher than || in precedence
+BUT using () makes things clearer no matter what
+Let's say...
+c1 = T, c2 = F, c3 = T
+
+if (condition1 || condition2 && condition3) 
+               (T)           && condition3)             (c1 || c3) evalulates to T so we replace it with T.
+                T
+    
+if (expr1 && cond3) where expr1 is (c1 || c2) 
+Note that if cond3 is FALSE, then we don't need to work of evaluating what expr1 is.
+(
+If (condition1 || conditon2 && condition3) NOTE NO ()
+If (condition1 || (condition2 && condition3)) This is better 
+
+************************
+
+! is NOT.
+if ( !(c1 || c2)     && (c3 || c4) )
+
+if (   !(expr1)      &&   (expr2)  )
+If ( (NOT expr1)     AND  (expr2)  )  then the whole combined expression is TRUE
+
+
+c1 = T, c2 = T, c3 = F, c4 = T
+PART 1: !(expr1) = !(c1 || c2) = !(T || T) == !(T) = FALSE
+PART 2: (expr2) = (c3 || c4) = (F || T) = t
+
+if (!(expr1) && expr2) == if (F && T) == if ( F )
+
+if (!(a very long expression with combined &&s and ||s) )
+    !( let's say this very long exp evals to F)
+    !(F)
+    T
+    
+boolean switch 
+if (!switch)
+if (!(switch))
